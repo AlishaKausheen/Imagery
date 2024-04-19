@@ -36,6 +36,9 @@ font-size: 34px;
 font-weight: 500;
 color: ${({ theme }) => theme.secondary};
 
+@media (max-width: 600px){
+  font-size: 20px;
+}
 `;
 
 const Home = () => {
