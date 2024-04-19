@@ -1,10 +1,17 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+
+
+const Container = styled.div`
+height: 100%;
+overflow-y:scroll;
+`;
 
 const Home = () => {
   return (
-    <div>
-      
-    </div>
+    <Container>
+      Home
+    </Container>
   )
 }
 

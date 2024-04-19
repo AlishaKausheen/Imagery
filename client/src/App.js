@@ -6,8 +6,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 
 const Container = styled.div`
-width: 100%;
-height: 100%;
+width: 100vw;
+height: 100vh;
 display: flex;
 background: ${({ theme }) => theme.bg};
 color: ${({ theme }) => theme.text_primary};
@@ -37,8 +37,7 @@ function App() {
                 <Route path="/post" element={<CreatePost/>} exact/>
               </Routes>
             </BrowserRouter>
-            <Home />
-            <CreatePost/>
+            
           </Wrapper>
         </Container>
       </ThemeProvider>
