@@ -67,6 +67,11 @@ gap:20px;
 `;
 
 const Home = () => {
+  const item = {
+    photo: "https://th.bing.com/th/id/OIP.wzhvW5NxoZ24A4WZfvM3bQHaKb?rs=1&pid=ImgDetMain",
+    author: "Alisha",
+    prompt: "Hey Prompt",
+  }
   return (
     <Container>
       <Headline>Explore popular posts in the Community!
@@ -75,11 +80,15 @@ const Home = () => {
       <SearchBar />
       <Wrapper>
         <CardWrapper>
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard/>
+          <ImageCard item={item} />
+           <ImageCard item={item} />
+           <ImageCard item={item} />
+           <ImageCard item={item} />
+           <ImageCard item={item} />
+           <ImageCard item={item} />
+           <ImageCard item={item} />
+           <ImageCard item={item} />
+          
          </CardWrapper>
       </Wrapper>
     </Container>

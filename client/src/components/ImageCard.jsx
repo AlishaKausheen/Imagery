@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Avatar } from '@mui/material';
+import { DownloadRounded } from '@mui/icons-material';
+import  FileSaver  from 'file-saver';
 
 const Card = styled.div`
 position: relative;
@@ -61,15 +63,24 @@ align-items: center;
 `;
 
 
-const ImageCard = () => {
+const ImageCard = ({item}) => {
   return (
     <Card>
-     <LazyLoadImage width="100%" src='https://th.bing.com/th/id/OIP.wzhvW5NxoZ24A4WZfvM3bQHaKb?rs=1&pid=ImgDetMain'/> 
+          <LazyLoadImage width="100%" src={item?.photo } /> 
           <HoverOverlay>
-              <Prompt>Prompt</Prompt>
+              <Prompt>{item?.prompt}</Prompt>
+              <div style={{
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+              }}>
               <Author>
-                  <Avatar style={{width: '32px', height: '32px'}}>A</Avatar>
-                  Alisha</Author>
+                      <Avatar style={{ width: '32px', height: '32px' }}>{item?.author[0] }</Avatar>
+                      {item?.author}</Author>
+                  <DownloadRounded onClick={()=> FileSaver.saveAs(item?.photo,"download.jpg")} />
+                  
+              </div>
     </HoverOverlay>
       </Card>
   )
