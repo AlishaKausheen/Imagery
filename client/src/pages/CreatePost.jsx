@@ -12,6 +12,7 @@ padding-bottom: 50px;
 display: flex;
 flex-direction: column;
 align-items: center;
+justify-content: center;
 gap: 20px;
 @media (max-width: 768){
   padding: 6px 10px;
@@ -24,13 +25,11 @@ height: fit-content;
 width: 100%;
 max-width: 1200px;
 gap: 8%;
-padding: 32px 0px;
 display: flex;
 justify-content: center;
 
 @media (max-width: 768px){
   flex-direction: column;
-
 }
 `;
 
@@ -40,7 +39,7 @@ const CreatePost = () => {
     <Container>
       <Wrapper>
         <GenerateImageForm />
-        <GeneratedImageCard/>
+        <GeneratedImageCard loading/>
       </Wrapper>
     </Container>
   )
