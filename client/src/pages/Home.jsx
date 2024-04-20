@@ -41,13 +41,42 @@ color: ${({ theme }) => theme.secondary};
 }
 `;
 
+const Wrapper = styled.div`
+width: 100%;
+max-width: 1400px;
+padding: 32px 0px;
+display: flex;
+justify-content: center;
+`;
+
+const CardWrapper = styled.div`
+display: grid;
+gap:20px;
+
+@media (min-width: 640px) and (max-width: 1199px){
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 639px){
+  grid-template-columns: repeat(2, 1fr);
+}
+`;
+
 const Home = () => {
   return (
     <Container>
       <Headline>Explore popular posts in the Community!
         <Span>◦Generate with AI◦</Span>
       </Headline>
-      <SearchBar/>
+      <SearchBar />
+      <Wrapper>
+        <CardWrapper>
+          <div>Card</div>
+          <div>Card</div>
+          <div>Card</div>
+          
+         </CardWrapper>
+      </Wrapper>
     </Container>
   )
 }
