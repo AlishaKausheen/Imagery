@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 import express from 'express';
 
-dotenv.config;
+dotenv.config();
 
 const app = express();
 app.use(cors());
@@ -29,3 +29,27 @@ app.get("/", async (req, res) => {
     });
     
 });
+
+//function to connect to mongodb
+const connectDB = () => {
+    mongoose.set("strictQuery", true);
+    mongoose.connect(process.env.MONGODB_URL)
+        .then(() => console.log("MONGODB connected"))
+        .catch((err) => {
+            console.error('Failed to connect to DB ');
+            console.error(err);
+    })
+}
+
+//server start
+const startServer = async () => {
+    try { 
+        connectDB();
+        app.listen(8080, ()=> console.log("Server started on 8080"))
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+startServer();
