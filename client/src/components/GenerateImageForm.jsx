@@ -54,6 +54,13 @@ const GenerateImageForm = ({
           generateImageLoading,
           setGenerateImageLoading,
 }) => {
+    const generateImageFun = () => {
+        setGenerateImageLoading(true);
+    }
+
+    const createPostFun = () => {
+        setCreatePostLoading(true);
+    }
   return (
     <Form>
           <Top>
@@ -82,11 +89,19 @@ const GenerateImageForm = ({
               **You can post the AI generated image to the Community!!
           </Body>
           <Actions>
-              <Button text='Generate Image' flex leftIcon={<AutoAwesome />} />
+              <Button text='Generate Image'
+                  flex leftIcon={<AutoAwesome />}
+                  isLoading={generateImageLoading}
+                  isDisabled={post.prompt === ''}
+                  onClick={()=> generateImageFun()}
+              />
               <Button text='Post Image'
                   type='secondary'
                   flex leftIcon={<CreateRounded />}
-              isLoading={generateImageLoading}/>
+                  isLoading={createPostLoading}
+                  isDisabled={post.name === '' || post.prompt === '' || post.photo === ''}
+                  onClick={()=>createPostFun()}
+              />
           </Actions>
     </Form>
   )
