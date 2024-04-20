@@ -47,7 +47,13 @@ gap: 8px;
 `;
 
 
-const GenerateImageForm = () => {
+const GenerateImageForm = ({
+    post, setPost,
+          createPostLoading,
+          setCreatePostLoading,
+          generateImageLoading,
+          setGenerateImageLoading,
+}) => {
   return (
     <Form>
           <Top>
@@ -61,6 +67,8 @@ const GenerateImageForm = () => {
                   label='Author'
                   placeholder='Enter your name...'
                   name='name'
+                   value={post.name}
+                  handelChange={(e)=> setPost({...post, name: e.target.value})}
               />
               <TextInput
                   label='Prompt'
@@ -68,12 +76,17 @@ const GenerateImageForm = () => {
                   name='Prompt'
                   rows='8'
                   textArea
+                  value={post.prompt}
+                  handelChange={(e)=> setPost({...post, prompt: e.target.value})}
               />
               **You can post the AI generated image to the Community!!
           </Body>
           <Actions>
               <Button text='Generate Image' flex leftIcon={<AutoAwesome />} />
-              <Button text='Post Image' type='secondary' flex leftIcon={<CreateRounded/>}/>
+              <Button text='Post Image'
+                  type='secondary'
+                  flex leftIcon={<CreateRounded />}
+              isLoading={generateImageLoading}/>
           </Actions>
     </Form>
   )
