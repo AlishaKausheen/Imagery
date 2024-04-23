@@ -23,6 +23,8 @@ app.use((err, req, res, next) => {
     });
 });
 
+app.use("/api/post", PostRouter);
+
 //Default get
 app.get("/", async (req, res) => {
     res.status(200).json({
