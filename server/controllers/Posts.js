@@ -39,6 +39,8 @@ export const createPost = async (req, res, next) => {
     } catch (error) {
         next(
             createError(
-                error.status, error?.response.data?.error?.message || error?.message))
+                error.status, error?.response.data?.error?.message || error?.message
+            )
+        )
     }
     }
